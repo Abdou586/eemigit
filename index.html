@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OrionPM — Gestion de projet SaaS</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="OrionPM — Application SaaS simple et puissante pour gérer vos projets, tâches et équipes.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">Orion<span class="accent">PM</span></div>
+      <nav class="nav">
+        <a href="#features">Fonctionnalités</a>
+        <a href="#pricing">Tarifs</a>
+        <a href="#testimonials">Témoignages</a>
+        <a class="btn btn-outline" href="#demo">Essayer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <h1>Gérez vos projets. Simplifiez votre travail d'équipe.</h1>
+          <p class="lead">OrionPM centralise tâches, jalons, suivi du temps et collaboration — tout ce dont une équipe moderne a besoin pour livrer plus vite.</p>
+          <div class="hero-ctas">
+            <a href="#demo" class="btn btn-primary">Essai gratuit 14 jours</a>
+            <a href="#features" class="btn btn-ghost">En savoir plus</a>
+          </div>
+          <ul class="trust">
+            <li><strong>1000+</strong> équipes</li>
+            <li><strong>99.9%</strong> uptime</li>
+            <li><strong>GDPR</strong> ready</li>
+          </ul>
+        </div>
+        <div class="hero-right">
+          <div class="mockup">
+            <div class="mockup-header">Tableau de bord - Projet Alpha</div>
+            <div class="mockup-body">
+              <div class="col">
+                <h4>Backlog</h4>
+                <div class="card">Créer maquette</div>
+                <div class="card">Plan sprint</div>
+              </div>
+              <div class="col">
+                <h4>En cours</h4>
+                <div class="card in-progress">Intégration API</div>
+                <div class="card in-progress">Tests unitaires</div>
+              </div>
+              <div class="col">
+                <h4>Terminé</h4>
+                <div class="card done">Setup repo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <h2>Fonctionnalités clés</h2>
+        <div class="feature-grid">
+          <article>
+            <h3>Tableaux Kanban</h3>
+            <p>Organisez le travail par statut et visualisez l'avancement en un coup d'œil.</p>
+          </article>
+          <article>
+            <h3>Planification & Sprints</h3>
+            <p>Planifiez les sprints, assignez des tâches et suivez les jalons.</p>
+          </article>
+          <article>
+            <h3>Rapports & Temps</h3>
+            <p>Suivez le temps passé et générez des rapports pour améliorer la productivité.</p>
+          </article>
+          <article>
+            <h3>Collaboration</h3>
+            <p>Commentaires, mentions et notifications en temps réel pour garder l'équipe alignée.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <h2>Tarifs simples</h2>
+        <div class="pricing-grid">
+          <div class="plan">
+            <h3>Starter</h3>
+            <p class="price">Gratuit</p>
+            <ul>
+              <li>Jusqu'à 5 utilisateurs</li>
+              <li>Fonctionnalités de base</li>
+            </ul>
+            <a class="btn btn-outline" href="#demo">Commencer</a>
+          </div>
+          <div class="plan featured">
+            <h3>Business</h3>
+            <p class="price">€12 / mois</p>
+            <ul>
+              <li>Utilisateurs illimités</li>
+              <li>Rapports avancés</li>
+              <li>Priorité support</li>
+            </ul>
+            <a class="btn btn-primary" href="#demo">Essayer gratuitement</a>
+          </div>
+          <div class="plan">
+            <h3>Enterprise</h3>
+            <p class="price">Sur devis</p>
+            <ul>
+              <li>SSO & intégrations</li>
+              <li>SLA & onboarding</li>
+            </ul>
+            <a class="btn btn-outline" href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <h2>Témoignages</h2>
+        <div class="test-grid">
+          <blockquote>
+            <p>« OrionPM a réduit notre temps de coordination de 40%. »</p>
+            <cite>— Léa, CTO @ StartCo</cite>
+          </blockquote>
+          <blockquote>
+            <p>« Simple, rapide et fiable — parfait pour nos équipes distantes. »</p>
+            <cite>— Marcus, Chef de projet @ DigitCorp</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="cta-section">
+      <div class="container cta-inner">
+        <h2>Prêt à lancer votre prochain projet ?</h2>
+        <p>Créez un compte et testez OrionPM gratuitement pendant 14 jours. Aucune carte de crédit requise.</p>
+        <a class="btn btn-primary large" href="#">Créer mon compte</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> OrionPM — Tous droits réservés.</div>
+      <div class="footer-links">
+        <a href="#privacy">Politique de confidentialité</a>
+        <a href="#terms">Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
