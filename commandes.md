@@ -35,3 +35,22 @@ Note : si vous voulez voir quels fichiers seront ajoutés, utilisez `git status`
 
 - `git push origin main`
   - Envoie les commits locaux sur la branche `main` du dépôt distant nommé `origin` (habituellement GitHub).
+
+## 4) Création des branches Otmane et Aln
+
+git checkout -b Otmane
+
+Et 
+
+git checkout -b Aln
+
+## 5) Complexe
+
+  # Récupérer les dernières modifications
+  git pull origin main
+
+  # Fusionner la branche
+  git merge Otmane et git merge Aln
+
+  # Pousser les changements
+  git push origin main
