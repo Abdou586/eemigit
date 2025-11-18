@@ -15,8 +15,33 @@ body{font-family:'Inter', 'Segoe UI', Roboto, Arial, sans-serif;background:linea
 .container{max-width:var(--container);margin:0 auto;padding:0 20px}
 .site-header{-webkit-backdrop-filter: blur(6px);backdrop-filter:blur(6px);position:sticky;top:0;background:linear-gradient(180deg, rgba(7,16,36,0.6), rgba(7,16,36,0.4));border-bottom:1px solid rgba(255,255,255,0.03)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-.brand{font-weight:700;font-size:1.2rem}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;font-weight:700;font-size:1.2rem}
 .brand .accent{color:var(--accent)}
+.site-header .nav{display:flex;align-items:center}
+
+/* Navbar CTA styling: make 'Essayer' stand out */
+.site-header .nav .btn{
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:0.95rem;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.site-header .nav .btn-outline{
+  border:1px solid rgba(108,124,255,0.18);
+  color:var(--accent);
+  background:rgba(108,124,255,0.04);
+}
+.site-header .nav .btn-outline:hover{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#041225;
+  border-color:transparent;
+  transform:translateY(-1px);
+}
+.site-header .nav a:not(.btn){
+  color:var(--muted);
+}
 .nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:0.95rem}
 .btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600}
 .btn-outline{border:1px solid rgba(255,255,255,0.08);color:var(--muted);background:transparent}
@@ -73,4 +98,80 @@ cite{display:block;margin-top:8px;color:var(--muted);font-size:0.95rem}
 @media (max-width:480px){
   .brand{font-size:1rem}
   .hero h1{font-size:1.5rem}
+}
+
+/* Signup page styles */
+.signup-hero{padding:48px 0}
+.signup-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.brand-logo{display:flex;align-items:center;gap:12px}
+.brand-text{font-weight:700;font-size:1.05rem}
+.signup-trust{color:var(--muted);font-size:0.95rem}
+.signup-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start}
+.signup-info{padding:22px 0}
+.signup-info .lead{color:var(--muted)}
+.bullets{list-style:none;padding:0;margin-top:14px;color:var(--muted)}
+.testimonial-small{margin-top:18px;background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;color:var(--muted)}
+
+.signup-panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+.signup-form{display:flex;flex-direction:column;gap:10px}
+.signup-form h3{margin:0 0 6px}
+.signup-form label{font-weight:600;font-size:0.95rem}
+.signup-form input[type="text"], .signup-form input[type="email"], .signup-form input[type="tel"], .signup-form select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+.signup-form .two-cols{display:flex;gap:10px}
+.signup-form .two-cols > div{flex:1}
+.plan-compact{display:flex;flex-direction:column;gap:8px}
+.plan-inline{display:flex;gap:10px;align-items:center;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+.plan-inline input{margin-right:8px}
+.plan-inline .muted{color:var(--muted);font-size:0.95rem}
+.checkbox{display:flex;align-items:center;gap:8px}
+.note{color:var(--muted);font-size:0.95rem;margin-top:6px}
+
+/* Stylised dropdown for team size */
+.signup-form select#size, .signup-panel select#size {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23e6eef8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 40px; /* space for custom arrow */
+  cursor: pointer;
+  transition: box-shadow .18s ease, border-color .12s ease, transform .06s ease;
+}
+.signup-form select#size:focus, .signup-panel select#size:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 6px 18px rgba(12,20,60,0.18), 0 0 0 4px rgba(108,124,255,0.06);
+}
+.signup-form select#size option{background:var(--card);color:inherit}
+
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:60}
+.modal[aria-hidden="false"]{display:flex}
+.modal-card{background:var(--card);padding:22px;border-radius:12px;max-width:520px;color:inherit}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+
+@media (max-width:880px){
+  .signup-grid{grid-template-columns:1fr}
+  .signup-panel{order:2}
+}
+
+/* logo image sizing */
+.logo-img{width:36px;height:36px;object-fit:contain;display:inline-block;vertical-align:middle}
+
+/* Contact page styles */
+.contact-hero{padding:48px 0}
+.contact-wrapper{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start}
+.contact-left{padding:6px 0}
+.contact-cards{display:flex;gap:12px;margin:18px 0}
+.contact-card{flex:1;padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
+.map-placeholder{margin-top:18px;height:180px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;color:var(--muted)}
+#map{margin-top:18px;height:320px;border-radius:10px;overflow:hidden}
+.contact-right .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px}
+.contact-form{display:flex;flex-direction:column;gap:10px}
+.contact-form input[type="text"],.contact-form input[type="email"],.contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+.form-actions{display:flex;justify-content:flex-end;margin-top:6px}
+
+@media (max-width:900px){
+  .contact-wrapper{grid-template-columns:1fr}
 }

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OrionPM — Inscription professionnelle</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Inscription professionnelle — OrionPM SaaS gestion de projet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">Orion<span class="accent">PM</span></div>
+      <nav class="nav">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#features">Fonctionnalités</a>
+        <a href="index.html#pricing">Tarifs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="signup-hero">
+      <div class="container">
+        <div class="signup-header">
+          <div class="brand-logo">
+            <img src="assets/logo.svg" alt="OrionPM logo" class="logo-img" />
+            <span class="brand-text">OrionPM</span>
+          </div>
+          <div class="signup-trust">Utilisé par 1 000+ équipes — <strong>99.9%</strong> uptime</div>
+        </div>
+
+        <div class="signup-grid">
+          <div class="signup-info">
+            <h1>Votre essai Business — prêt en 60 secondes</h1>
+            <p class="lead">Créez un espace de travail sécurisé pour votre équipe, migrez vos projets et commencez à collaborer immédiatement. Onboarding et support inclus pendant l'essai.</p>
+
+            <ul class="bullets">
+              <li><strong>Onboarding dédié :</strong> session 1:1 avec notre équipe.</li>
+              <li><strong>Import facile :</strong> CSV, Trello, Asana.</li>
+              <li><strong>Sécurité :</strong> sauvegardes quotidiennes & chiffrement.</li>
+            </ul>
+
+            <div class="testimonial-small">
+              « OrionPM nous a aidés à livrer plus vite — collaboration enfin claire. »
+              <div class="by">— Léa, CTO @ StartCo</div>
+            </div>
+          </div>
+
+          <aside class="signup-panel">
+            <form id="signupForm" class="signup-form" action="#" method="post" novalidate>
+              <h3>Créer un compte professionnel</h3>
+
+              <label for="company">Nom de l'entreprise</label>
+              <input id="company" name="company" type="text" required placeholder="Ex: Studio Acme" />
+
+              <div class="two-cols">
+                <div>
+                  <label for="fullname">Nom complet</label>
+                  <input id="fullname" name="fullname" type="text" required placeholder="Votre nom" />
+                </div>
+                <div>
+                  <label for="email">Email professionnel</label>
+                  <input id="email" name="email" type="email" required placeholder="vous@votreentreprise.com" />
+                </div>
+              </div>
+
+              <div class="two-cols">
+                <div>
+                  <label for="size">Taille de l'équipe</label>
+                  <select id="size" name="size">
+                    <option value="1-5">1–5</option>
+                    <option value="6-20">6–20</option>
+                    <option value="21-100">21–100</option>
+                    <option value="100+">100+</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="phone">Téléphone (optionnel)</label>
+                  <input id="phone" name="phone" type="tel" placeholder="+33 6 12 34 56 78" />
+                </div>
+              </div>
+
+              <div class="plan-compact">
+                <label class="plan-inline">
+                  <input type="radio" name="plan" value="business" checked />
+                  <div>
+                    <strong>Business</strong>
+                    <div class="muted">€12 / mois — utilisateurs illimités</div>
+                  </div>
+                </label>
+                <label class="plan-inline">
+                  <input type="radio" name="plan" value="enterprise" />
+                  <div>
+                    <strong>Enterprise</strong>
+                    <div class="muted">Sur devis — SSO & SLA</div>
+                  </div>
+                </label>
+              </div>
+
+              <label class="checkbox"><input id="accept" type="checkbox" required /> J'accepte les <a href="#">conditions</a> et la <a href="#">politique de confidentialité</a>.</label>
+
+              <button type="submit" class="btn btn-primary large">Démarrer l'essai gratuit</button>
+
+              <p class="note">Aucune carte de crédit requise • Annulez à tout moment</p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success modal (hidden) -->
+    <div id="successModal" class="modal" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <h3 id="modalTitle">Bienvenue chez OrionPM 🎉</h3>
+        <p>Nous avons créé votre espace. Un email de confirmation a été envoyé. Vous pourrez ensuite inviter votre équipe et configurer les projets.</p>
+        <div class="modal-actions">
+          <button id="modalClose" class="btn btn-outline">Fermer</button>
+          <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+        </div>
+      </div>
+    </div>
+
+  <script>
+    // Simple client-side validation + success modal demo
+    (function(){
+      const form = document.getElementById('signupForm');
+      const modal = document.getElementById('successModal');
+      const modalClose = document.getElementById('modalClose');
+
+      function showModal(){
+        modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      }
+      function hideModal(){
+        modal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }
+
+      form && form.addEventListener('submit', function(e){
+        e.preventDefault();
+        // basic validation
+        const required = form.querySelectorAll('[required]');
+        for (const input of required){
+          if (!input.value || (input.type === 'checkbox' && !input.checked)){
+            input.focus();
+            return;
+          }
+        }
+
+        // simulate success (replace with real AJAX POST)
+        showModal();
+      });
+
+      modalClose && modalClose.addEventListener('click', hideModal);
+      modal.addEventListener('click', function(e){ if (e.target === modal) hideModal(); });
+    })();
+  </script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> OrionPM — Tous droits réservés.</div>
+      <div class="footer-links">
+        <a href="#privacy">Politique de confidentialité</a>
+        <a href="#terms">Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -5,17 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>OrionPM — Gestion de projet SaaS</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
   <meta name="description" content="OrionPM — Application SaaS simple et puissante pour gérer vos projets, tâches et équipes.">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">Orion<span class="accent">PM</span></div>
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="OrionPM logo" class="logo-img" />
+        <span class="brand-text">Orion<span class="accent">PM</span></span>
+      </a>
       <nav class="nav">
         <a href="#features">Fonctionnalités</a>
         <a href="#pricing">Tarifs</a>
         <a href="#testimonials">Témoignages</a>
-        <a class="btn btn-outline" href="#demo">Essayer</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-outline" href="signup.html">Essayer</a>
       </nav>
     </div>
   </header>
@@ -23,23 +29,23 @@
   <main>
     <section class="hero">
       <div class="container hero-inner">
-        <div class="hero-left">
+        <div class="hero-left" data-animate>
           <h1>Gérez vos projets. Simplifiez votre travail d'équipe.</h1>
           <p class="lead">OrionPM centralise tâches, jalons, suivi du temps et collaboration — tout ce dont une équipe moderne a besoin pour livrer plus vite.</p>
-          <div class="hero-ctas">
-            <a href="#demo" class="btn btn-primary">Essai gratuit 14 jours</a>
+          <div class="hero-ctas" data-animate>
+            <a href="signup.html" class="btn btn-primary">Essai gratuit 14 jours</a>
             <a href="#features" class="btn btn-ghost">En savoir plus</a>
           </div>
-          <ul class="trust">
+          <ul class="trust" data-animate class="stagger">
             <li><strong>1000+</strong> équipes</li>
             <li><strong>99.9%</strong> uptime</li>
             <li><strong>GDPR</strong> ready</li>
           </ul>
         </div>
         <div class="hero-right">
-          <div class="mockup">
+          <div class="mockup" data-animate>
             <div class="mockup-header">Tableau de bord - Projet Alpha</div>
-            <div class="mockup-body">
+            <div class="mockup-body stagger" data-animate>
               <div class="col">
                 <h4>Backlog</h4>
                 <div class="card">Créer maquette</div>
@@ -95,7 +101,7 @@
               <li>Jusqu'à 5 utilisateurs</li>
               <li>Fonctionnalités de base</li>
             </ul>
-            <a class="btn btn-outline" href="#demo">Commencer</a>
+            <a class="btn btn-outline" href="signup.html">Commencer</a>
           </div>
           <div class="plan featured">
             <h3>Business</h3>
@@ -105,7 +111,7 @@
               <li>Rapports avancés</li>
               <li>Priorité support</li>
             </ul>
-            <a class="btn btn-primary" href="#demo">Essayer gratuitement</a>
+            <a class="btn btn-primary" href="signup.html">Essayer gratuitement</a>
           </div>
           <div class="plan">
             <h3>Enterprise</h3>
@@ -114,7 +120,7 @@
               <li>SSO & intégrations</li>
               <li>SLA & onboarding</li>
             </ul>
-            <a class="btn btn-outline" href="#contact">Contact</a>
+            <a class="btn btn-outline" href="contact.html">Contact</a>
           </div>
         </div>
       </div>
@@ -140,7 +146,7 @@
       <div class="container cta-inner">
         <h2>Prêt à lancer votre prochain projet ?</h2>
         <p>Créez un compte et testez OrionPM gratuitement pendant 14 jours. Aucune carte de crédit requise.</p>
-        <a class="btn btn-primary large" href="#">Créer mon compte</a>
+        <a class="btn btn-primary large" href="signup.html">Créer mon compte</a>
       </div>
     </section>
   </main>
@@ -157,6 +163,40 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple staggered animation initializer
+    document.addEventListener('DOMContentLoaded', function () {
+      const els = document.querySelectorAll('[data-animate]');
+      let idx = 0;
+      for (const el of els) {
+        const baseDelay = Number(el.datasetDelay) || idx * 0.08;
+
+        if (el.classList.contains('stagger')) {
+          const children = Array.from(el.children);
+          let i = 0;
+          for (const child of children) {
+            child.style.animation = 'pop 0.62s cubic-bezier(.2,.9,.2,1) both';
+            child.style.animationDelay = (baseDelay + i * 0.07) + 's';
+            i++;
+          }
+        } else {
+          el.style.animation = 'fadeUp 0.72s cubic-bezier(.2,.9,.2,1) both';
+          el.style.animationDelay = baseDelay + 's';
+        }
+        idx++;
+      }
+    });
+
+      // FAQ accordion
+      document.addEventListener('DOMContentLoaded', function (){
+        const items = document.querySelectorAll('.faq-item');
+        for (const item of items) {
+          const btn = item.querySelector('.faq-q');
+          btn.addEventListener('click', function () {
+            item.classList.toggle('open');
+          });
+        }
+      });
   </script>
 </body>
 </html>

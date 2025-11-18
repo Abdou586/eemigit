@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — OrionPM</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Leaflet CSS for OpenStreetMap -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+e2k2G2aJbXgqQxK1c3w3qjv0p2nG2f1w5p0m0h2M=" crossorigin=""/>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Contact commercial OrionPM — demandez une démo ou un devis entreprise.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="OrionPM logo" class="logo-img" />
+        <span class="brand-text">Orion<span class="accent">PM</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#pricing">Tarifs</a>
+        <a href="index.html#features">Fonctionnalités</a>
+        <a class="btn btn-outline" href="signup.html">Essayer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-hero">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-left">
+            <h1>Contactez-nous — équipe commerciale</h1>
+            <p class="lead">Remplissez le formulaire pour une démo personnalisée, un devis Enterprise ou toute question commerciale. Nous répondons généralement sous 24 heures ouvrées.</p>
+
+            <div class="contact-cards">
+              <div class="card contact-card">
+                <h4>Par email</h4>
+                <p><a href="mailto:sales@orionpm.example">sales@orionpm.example</a></p>
+              </div>
+              <div class="card contact-card">
+                <h4>Téléphone</h4>
+                <p>+33 1 23 45 67 89</p>
+              </div>
+              <div class="card contact-card">
+                <h4>Adresse</h4>
+                <p>12 Rue de l'Innovation, 75000 Paris, France</p>
+              </div>
+            </div>
+
+            <div id="map" aria-label="Carte OpenStreetMap - OrionPM" ></div>
+          </div>
+
+          <aside class="contact-right">
+            <div class="panel">
+              <h3>Envoyer une demande</h3>
+              <form id="contactForm" class="contact-form" action="#" method="post" novalidate>
+                <label for="cname">Nom complet</label>
+                <input id="cname" name="name" type="text" required placeholder="Votre nom" />
+
+                <label for="cemail">Email professionnel</label>
+                <input id="cemail" name="email" type="email" required placeholder="vous@votreentreprise.com" />
+
+                <label for="ccompany">Entreprise</label>
+                <input id="ccompany" name="company" type="text" placeholder="Nom de l'entreprise" />
+
+                <label for="csubject">Sujet</label>
+                <input id="csubject" name="subject" type="text" placeholder="Ex: Demande de démo / Intégration" />
+
+                <label for="cmessage">Message</label>
+                <textarea id="cmessage" name="message" rows="6" placeholder="Décrivez votre besoin"></textarea>
+
+                <label class="checkbox"><input id="cagree" type="checkbox" required /> J'accepte que mes informations soient utilisées pour me contacter.</label>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary large">Envoyer la demande</button>
+                </div>
+              </form>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> OrionPM — Tous droits réservés.</div>
+      <div class="footer-links">
+        <a href="#privacy">Politique de confidentialité</a>
+        <a href="#terms">Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple client-side handling to simulate submission
+    document.getElementById('contactForm')?.addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Merci — votre demande a été envoyée (simulation).');
+      this.reset();
+    });
+  </script>
+
+  <!-- Leaflet JS for OpenStreetMap -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1j8k6fGkG8n3X3fX1vG2t1VQ2qk3Zs7Y9k1s2b6k=" crossorigin=""></script>
+  <script>
+    // Initialize Leaflet map
+    (function(){
+      const mapEl = document.getElementById('map');
+      if (!mapEl) return;
+      const map = L.map('map').setView([48.8566, 2.3522], 12); // Paris coordinates
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      // Marker for the office
+      L.marker([48.8566, 2.3522]).addTo(map)
+        .bindPopup('OrionPM - Siège (placeholder)')
+        .openPopup();
+    })();
+  </script>
+</body>
+</html>
